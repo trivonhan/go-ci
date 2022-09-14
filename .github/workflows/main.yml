@@ -1,0 +1,17 @@
+name: Master CI
+
+on:
+  pull_request:
+    branches:
+      - master
+      - releases/**
+  push:
+    branches:
+      - master
+      - releases/**
+      - feat/**
+jobs:
+  go_ci:
+    uses: trivonhan/github-action-test/.github/workflows/main.yml@master
+    with:
+      language: 'go'
